@@ -50,6 +50,13 @@ async function run() {
             const result = await serviceCollection.deleteOne(query);
             res.send(result)
         });
+
+        // use collection api
+        app.post('/order', async (req, res) => {
+            const order = req.body;
+            const result = await orderCollection.insertOne(order);
+            res.send(result)
+        })
     }
     finally { }
 };
